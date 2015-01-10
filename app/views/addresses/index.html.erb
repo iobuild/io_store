@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+
+
+    
+      <p>
+
+        <b>使用当前地址: </b>
+        <input type="radio" name="address_id" value="<%= @default_address.id %>" checked />
+        <%= @default_address.province %>
+        <%= @default_address.city %>
+        <%= @default_address.sub_city %>
+        <%= @default_address.street %>
+
+      </p>
+
+
+      <ul role="tablist" class="nav nav-tabs" id="address_tab">
+        <% if @buyer.addresses.length >= 2 %>
+        <li class="active">
+          <a href="#" data-id='1'>选择其它地址</a>
+        </li>
+        <% end %>
+        
+        <li <% if @buyer.addresses.length < 2 %> class="active" <% end %> >
+          <a href="#" data-id='2'>创建新地址</a>
+        </li>
+      
+      </ul>
+
+      
+
+      <div id="select-address" <% if @buyer.addresses.length < 2 %> style="display: none;" <% end %>>
+        <%= render 'addresses/select_default' %>
+      </div>
+
+
+      <div id="new-address" <% if @buyer.addresses.length >= 2 %> style="display: none;" <% end %>>
+        <%= render 'addresses/new' %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+

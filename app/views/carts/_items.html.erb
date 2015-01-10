@@ -1,0 +1,36 @@
+    <% cart.cart_items.each do |item| %>
+      <div class="col-md-6 cart-item-<%= item.id %>">
+        <input type="checkbox" name="items[]" class="selected" value="<%= item.id %>" />
+        <%= item.sellable.title %>
+        <table class="table cart-list">
+          <tr>
+            <td width='30%'>
+              <img src="/<%= item.sellable.title %>.jpg"  width="100px" height="100px" />
+            </td>
+            <td width='70%'>
+              <p>单价: <%= item.sellable.price %> </p>
+              <p>
+              数量: 
+              <span class='quantity'>
+                <a rel="nofollow" href="#" class="increase-quantity" data-id='<%= item.id %>'>-</a>
+                <span class='quantity-<%= item.id %>'><%= item.quantity %></span>
+                <a rel="nofollow" href="#" class="decrease-quantity" data-id='<%= item.id %>'>+</a>
+              </span>
+              </p>
+
+              <p>总价: <span id='item-amount-<%= item.id %>'><%= item.amount %></span></p>
+
+              <p>
+                <a class="btn btn-default remove-cart-item" data-id="<%= item.id %>" href="#">
+                删除
+              </a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        
+            
+        
+
+      </div>
+    <% end %>
