@@ -1,0 +1,23 @@
+  <% if cart.cart_items.length > 0 %>
+    <div class="col-md-12" role="alert">
+
+        <span class='pull-left'>
+          
+          <input type="checkbox" name="select-all" class="select-all" /> 全选 
+          <a href="#" class="remove-selected">删除</a>
+          
+        </span>
+
+        <span class='pull-right'>
+          总计: <span id='total-amount'><%= cart.amount %></span>
+
+          <% if params[:controller] == 'orders' %>
+          <a href="<%= @payment_url %>" class="btn btn-default">支付</a>
+          <% else %>
+          <a href="/store/orders" class="btn btn-default">购买</a>
+          <% end %>
+
+        </span>
+
+      </div>
+    <% end %>

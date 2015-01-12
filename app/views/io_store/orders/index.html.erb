@@ -1,0 +1,43 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+
+
+    
+      <p>
+
+        <b>使用当前地址: </b>
+        <input type="radio" name="address_id" value="<%= @default_address.id %>" checked />
+        <%= @default_address.province %>
+        <%= @default_address.city %>
+        <%= @default_address.sub_city %>
+        <%= @default_address.street %>
+
+      </p>
+
+      <p class="alert alert-notice">
+        <a href="/store/addresses">重新选择其它地址</a>
+      </p>
+
+
+
+      <%= show_paid_products(@type) %>
+
+
+      
+
+      
+
+
+    </div>
+
+
+    
+
+
+  </div>
+</div>
+
+
+

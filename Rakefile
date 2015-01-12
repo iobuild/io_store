@@ -1,6 +1,18 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+end
 
-require File.expand_path('../config/application', __FILE__)
+load 'lib/tasks/io_store_tasks.rake'
 
-Rails.application.load_tasks
+$:.unshift File.join(File.dirname(__FILE__), 'spec','support')
+load 'spec/lib/tasks/io_store_spec_tasks.rake'
+
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
+task :default => :spec
+
+Bundler::GemHelper.install_tasks
+
+task :test_app => "io_store:dummy_app"

@@ -1,0 +1,21 @@
+<div class="container-fluid" style="padding-bottom: 15px;">
+  <div class="row">
+    <div class="col-md-12">
+
+      <span class="pull-right shopping-cart">
+        <a href="/store/carts">
+          <i class="fa fa-shopping-cart"></i>
+          购物车
+           <span id='cart-number'>
+            <% if @cart %>
+            (<%= @cart.get_number %>)
+            <% else %>
+            (0)
+            <% end %>
+          </span> 
+        </a>
+      </span>
+      
+    </div>
+  </div>
+</div>

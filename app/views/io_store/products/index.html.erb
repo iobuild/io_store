@@ -1,0 +1,48 @@
+<%#= render 'carts/cart_header' %>
+
+<%#= session[:cart_id] %>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <% @products.each do |product| %>
+    <div class="col-md-6">
+
+        <table class="table cart-list">
+          <tr>
+            <td width='30%'>
+              <img src="/<%= product.title %>.jpg"  width="100px" height="100px" />
+            </td>
+            <td width='70%'>
+              <%= product.title %> <br />
+              单价: <%= product.price %> <br />
+
+              <p style='margin-top: 5px;'>
+                <% if user_signed_in? %>
+                <a class="btn btn-default add-to-cart" data-id="<%= product.id %>" href="#">
+                <% else %>
+                <a class="btn btn-default" href="/store/carts/add?id=<%= product.id %>&rel=carts">
+                <% end %>
+                加入购物车
+
+              </a>
+
+              <a class="btn btn-default" href="/store/orders/add_product?product_id=<%= product.id %>">
+                购买
+              </a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        
+            
+        
+
+      </div>
+
+
+    <% end %>
+
+
+  </div>
+</div>

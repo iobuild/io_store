@@ -1,0 +1,57 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+
+      <h3>创建收货地址</h3>
+
+      <%= simple_form_for(@new_address, :url => "/store/addresses", html: { class: 'form-vertical' }) do |f| %>
+
+        <%= f.error_notification %>
+
+        <div class="form-group">       
+          <div class="controls">
+            <%= f.input :province, :label => false, :required => true, :collection => @provinces, :include_blank => true, prompt: '请选择省份' %>
+          </div>
+        </div>
+
+        <div class="form-group cities" style="display: none;">       
+          <div class="controls">
+            <%= f.input :city, :label => false, :required => true, :collection => [], :include_blank => true, prompt: '请选择市' %>
+          </div>
+        </div>
+
+
+        <div class="form-group sub_cities" style="display: none;">       
+          <div class="controls">
+            <%= f.input :sub_city, :label => false, :required => true, :collection => [], :include_blank => true, prompt: '请选择县' %>
+          </div>
+        </div>
+
+
+        <div class="form-group">       
+            <%= f.input :street, :label => false, :required => true, :placeholder => '请填写街道地址', input_html: {:class => 'form-control'} %>
+        </div>
+
+
+
+        <div class="form-group">       
+          <div class="controls">
+            <a href="javascript: window.history.back();" class="btn btn-primary btn-lg">返回</a>
+            <%= f.submit '确定', :class => 'btn btn-lg btn-primary' %>
+          </div>
+        </div>
+
+
+        
+
+ 
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+

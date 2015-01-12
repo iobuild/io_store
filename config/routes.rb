@@ -1,15 +1,8 @@
-Rails.application.routes.draw do
+IoStore::Engine.routes.draw do
+  root :to => "products#index"
 
-  devise_for :users
-  root 'home#index'
-
-  devise_scope :user do 
-    get "/users" => "users#index" 
-    get "/users/:username" => 'users#show'
-  end
-
-
-  resources :home do
+  
+  resources :products do
     collection do
       get 'add_to_cart'
     end
@@ -40,15 +33,5 @@ Rails.application.routes.draw do
     collection do
       get 'add_product'
     end
-  end
-  
-
-  namespace :admin do
-    root "base#index"
-    resources :users
-  end
-
-  if ::Rails.env.production? 
-    match '*path', via: :all, to: 'home#error_404'
   end
 end

@@ -1,0 +1,26 @@
+.cart-list .table thead>tr>th,.table tbody>tr>th,.table tfoot>tr>th,.table thead>tr>td,.table tbody>tr>td,.table tfoot>tr>td{
+   border-top:0px solid #ddd
+}
+
+
+span.quantity a {
+    background: url("/assets/io_store/up-down.svg") repeat scroll 0 0 / 16px auto rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 16px;
+    opacity: 0.3;
+    text-indent: -40000px;
+    width: 16px;
+}
+
+
+span.quantity a:last-child {
+    background: url("/assets/io_store/down-up.svg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.increase-quantity {
+  margin-right: 5px;
+}
+
+.decrease-quantity {
+  margin-left: 5px;
+}
