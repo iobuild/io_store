@@ -91,12 +91,7 @@ module IoStore
       def create_assets
         create_file Rails.root + "vendor/assets/stylesheets/io_store.css.scss" do
           %Q{
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import 'jquery-ui'
-@import 'io_store/store';
+
           }
         end
         create_file Rails.root + "vendor/assets/javascripts/io_store.js" do

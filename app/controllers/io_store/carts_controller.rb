@@ -9,6 +9,8 @@ module IoStore
       if session[:shopping_product_id]
         session.delete(:shopping_product_id)
       end
+
+      extract_cart if @cart.nil?
       
     end
 
