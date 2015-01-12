@@ -6,8 +6,10 @@ module IoStore
       desc "Used to copy io_store's views to your application's views."
 
       def copy_views
-        view_directory :comments
-        view_directory :topics
+        view_directory :products
+        view_directory :addresses
+        view_directory :carts
+        view_directory :orders
       end
 
       protected
