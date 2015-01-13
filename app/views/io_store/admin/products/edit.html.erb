@@ -1,0 +1,55 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+
+
+      <%= render '/io_store/admin/products/menu' %>
+
+      <%= simple_form_for(@product, :url => "/store/admin/products/#{@product.id}", html: { class: 'form-vertical', :multipart => true }) do |f| %>
+
+        <%= f.error_notification %>
+
+
+        <div class="form-group">       
+            <%= f.input :title, :label => false, :required => true, :placeholder => '请填写商品标题', input_html: {:class => 'form-control'} %>
+        </div>
+
+
+        <div class="form-group">       
+            <%= f.input :price, :label => false, :required => true, :placeholder => '请填写商品价格', input_html: {:class => 'form-control'} %>
+        </div>
+
+
+        <div class="form-group">       
+            <%= f.input :desc, as: :text, :label => false, :required => true, :placeholder => '请填写商品描述', input_html: {:class => 'form-control'} %>
+        </div>
+
+
+        <div class="form-group">       
+            <%= f.file_field :pic %>
+        </div>
+
+        
+
+
+        <div class="form-group">       
+          <div class="controls">
+            <a href="javascript: window.history.back();" class="btn btn-primary btn-lg">返回</a>
+            <%= f.submit '确定', :class => 'btn btn-lg btn-primary' %>
+          </div>
+        </div>
+
+
+        
+
+ 
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+

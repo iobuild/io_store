@@ -11,7 +11,7 @@
         <table class="table cart-list">
           <tr>
             <td width='30%'>
-              <img src="/<%= product.title %>.jpg"  width="100px" height="100px" />
+              <%= image_tag product.pic.url(:small) %>
             </td>
             <td width='70%'>
               <%= product.title %> <br />

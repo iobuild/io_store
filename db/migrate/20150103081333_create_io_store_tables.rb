@@ -5,6 +5,7 @@ class CreateIoStoreTables < ActiveRecord::Migration
     create_table :io_store_products do |t|
       t.string   :title
       t.text   :desc
+      t.attachment :pic
       t.decimal  :price, :null => false, :default => 0
       
       t.timestamps

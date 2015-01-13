@@ -1,0 +1,8 @@
+  <ul class="nav nav-tabs" style="margin-bottom:20px" role="tablist">
+    <li <% if current_page?(:action => 'index') %> class="active" <% end %>>
+      <%= link_to "Product List", "/store/admin/products", :method => :get %>
+    </li>
+    <li<% if current_page?(:action => 'new') %> class="active" <% end %>>
+      <%= link_to "New Product", "/store/admin/products/new", :method => :get %>
+    </li>
+  </ul>

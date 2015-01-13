@@ -19,6 +19,7 @@ end
 
 
 require 'alipay'
+require 'paperclip'
 require 'decorators'
 require 'jquery-turbolinks'
 require 'bootstrap-sass'

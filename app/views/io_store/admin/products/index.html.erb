@@ -1,0 +1,42 @@
+    
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+
+
+  <%= render '/io_store/admin/products/menu' %>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Price</th>
+        <th></th>
+        <th></th>
+      </th>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+          <tr>
+            <td><%= image_tag product.pic.url(:thumb) %></td>
+            <td valign="top">
+              <a href="/articles/<%= product.id %>" target="_blank"><%= product.title %></a>
+            </td>
+            <td><%= product.price %></td>
+            <td class="table-normal"><%= link_to "edit", "/store/admin/products/#{product.id}/edit" %></td>
+            <td class="table-normal"><%= link_to "delete", "/store/admin/products/#{product.id}", :method => :delete, :confirm => "deleted?" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <%= paginate @products %>
+
+
+
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ module IoStore
 
 
     def index
-      @products = IoStore::Product.all
+      @products = IoStore::Product.order('id desc').page params[:page]
     end
 
   end

@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'decorators', '~> 1.0.2'
   s.add_dependency 'mysql2'
   s.add_dependency 'alipay'
+  s.add_dependency 'paperclip', '~> 4.2'
 
   s.add_dependency 'jquery-turbolinks'
   s.add_dependency 'bootstrap-sass', '~> 3.3.1'

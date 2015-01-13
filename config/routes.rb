@@ -34,4 +34,13 @@ IoStore::Engine.routes.draw do
       get 'add_product'
     end
   end
+
+
+
+  namespace :admin do
+    resources :products
+
+  end
+
+
 end
