@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe IoStore::Address do
   before {
-    @user = User.create(:name => 'a', :kind => 'a', :email => 'a')
-    @buyer = Buyer.find(@user.id)
+    @user = FactoryGirl.create(:user)
+    @buyer = IoStore::Buyer.find(@user.id)
     @address_1 = FactoryGirl.create(:address, :buyer => @buyer)
     @address_2 = FactoryGirl.create(:address, :buyer => @buyer)
     @address_3 = FactoryGirl.create(:address, :buyer => @buyer)

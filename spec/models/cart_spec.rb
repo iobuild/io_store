@@ -3,8 +3,8 @@ require "spec_helper"
 describe IoStore::Cart do
   before {
     @cart = FactoryGirl.create(:cart)
-    @product_1 = products(:widget1)
-    @product_2 = products(:widget2)
+    @product_1 = FactoryGirl.create(:product, :title => 'xx1')
+    @product_2 = FactoryGirl.create(:product, :title => 'xx2')
     @cart_item_1 = FactoryGirl.create(:cart_item, :sellable => @product_1, :cart => @cart)
     @cart_item_2 = FactoryGirl.create(:cart_item, :sellable => @product_2, :cart => @cart)
   }
@@ -14,7 +14,7 @@ describe IoStore::Cart do
   end
 
   it 'cart amount' do
-    expect(@cart.amount).to eq(3)
+    expect(@cart.amount.to_i).to eq(6)
   end
 
 
@@ -36,7 +36,7 @@ describe IoStore::Cart do
     end
 
     it 'cart amount' do
-      expect(@cart.amount).to eq(0)
+      expect(@cart.amount.to_i).to eq(0)
     end
 
   end
@@ -46,7 +46,7 @@ describe IoStore::Cart do
   describe 'add product' do
 
     before {
-      @product = products(:widget3)
+      @product = FactoryGirl.create(:product, :title => 'xx3')
       @cart_new_item = @cart.add(@product, 2)
     }
 
@@ -55,7 +55,7 @@ describe IoStore::Cart do
     end
 
     it 'cart amount' do
-      expect(@cart.amount).to eq(9)
+      expect(@cart.amount.to_i).to eq(12)
     end
 
     it 'remove product' do
@@ -75,7 +75,7 @@ describe IoStore::Cart do
       end
 
       it 'cart amount' do
-        expect(@cart.amount).to eq(8)
+        expect(@cart.amount.to_i).to eq(9)
       end
     end
 
@@ -86,7 +86,7 @@ describe IoStore::Cart do
       }
 
       it 'cart amount' do
-        expect(@cart.amount).to eq(7)
+        expect(@cart.amount.to_i).to eq(9)
       end
     end
 
@@ -101,7 +101,7 @@ describe IoStore::Cart do
       end
 
       it 'cart amount' do
-        expect(@cart.amount).to eq(6)
+        expect(@cart.amount.to_i).to eq(9)
       end
     end
 

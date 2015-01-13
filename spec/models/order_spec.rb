@@ -2,8 +2,7 @@ require "spec_helper"
 
 describe IoStore::Order do
   before {
-    # @user = FactoryGirl.create(:user)
-    @user = User.create(:name => 'a', :kind => 'a', :email => 'a')
+    @user = FactoryGirl.create(:user)
     @order = FactoryGirl.create(:order, :buyer => @user)
   }
 
@@ -12,13 +11,7 @@ describe IoStore::Order do
     expect(@order.code).to eq('xxx')
   end
 
-  it 'created should be true' do
-    expect(@order.created?).to eq(true)
-  end
-
-  it 'pending should be false' do
-    expect(@order.pending?).to eq(false)
-  end
+ 
   
 
 end
