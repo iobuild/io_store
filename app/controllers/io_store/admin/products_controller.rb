@@ -35,8 +35,6 @@ module IoStore
 
 
       def destroy
-        @product.pic = nil
-        @product.save
         @product.destroy
 
         redirect_to "/store/admin/products"

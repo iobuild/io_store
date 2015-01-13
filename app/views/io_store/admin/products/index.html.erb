@@ -26,7 +26,7 @@
             </td>
             <td><%= product.price %></td>
             <td class="table-normal"><%= link_to "edit", "/store/admin/products/#{product.id}/edit" %></td>
-            <td class="table-normal"><%= link_to "delete", "/store/admin/products/#{product.id}", :method => :delete, :confirm => "deleted?" %></td>
+            <td class="table-normal"><%= link_to "delete", "/store/admin/products/#{product.id}", :method => :delete, data: {confirm: "delete?"} %></td>
           </tr>
       <% end %>
     </tbody>

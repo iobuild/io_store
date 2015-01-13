@@ -7,7 +7,9 @@ module IoStore
     def check_address
       @buyer = Buyer.find(current_user.id)
 
-       add_product_into_cart
+      extract_cart if @cart.nil?
+
+      add_product_into_cart
 
       redirect_to "/store/addresses/new" if @buyer.has_no_address?
     end
