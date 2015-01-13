@@ -34,6 +34,21 @@ module IoStore
       end
 
 
+      def remove_selected
+        items = params[:items]
+
+        return render :nothing => true if items.nil?
+        return render :nothing => true if items.length == 0
+
+        items.each do |id|
+          product = IoStore::Product.find(id)
+          product.destroy
+        end
+
+        redirect_to "/store/admin/products"
+      end
+
+
       def destroy
         @product.destroy
 

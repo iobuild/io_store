@@ -104,6 +104,7 @@ module IoStore
 //= require bootstrap-sprockets
 //= require io_store/cart
 //= require io_store/address
+//= require io_store/store
 //= require_tree .
           }
         end

@@ -7,9 +7,13 @@
   <%= render '/io_store/admin/products/menu' %>
 
 
+  <%= paginate @products %>
+
+
   <table class="table">
     <thead>
       <tr>
+        <th></th>
         <th></th>
         <th>Title</th>
         <th>Price</th>
@@ -20,6 +24,7 @@
     <tbody>
       <% @products.each do |product| %>
           <tr>
+            <td><input type="checkbox" name="items[]" class="selected" value="<%= product.id %>" /></td>
             <td><%= image_tag product.pic.url(:thumb) %></td>
             <td valign="top">
               <a href="/articles/<%= product.id %>" target="_blank"><%= product.title %></a>
@@ -29,13 +34,28 @@
             <td class="table-normal"><%= link_to "delete", "/store/admin/products/#{product.id}", :method => :delete, data: {confirm: "delete?"} %></td>
           </tr>
       <% end %>
+
+          <tr>
+            <td colspan="7">
+    <% if @products.length > 0 %>
+ 
+        <span class='pull-left'>
+          
+          <input type="checkbox" name="select-all" class="select-all" /> 全选 
+          <a href="#" class="remove-selected-products">删除</a>
+          
+        </span>
+
+    <% end %>
+
+
+            </td>
+          </tr>
     </tbody>
   </table>
 
 
-  <%= paginate @products %>
-
-
+    
 
     </div>
   </div>

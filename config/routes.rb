@@ -38,7 +38,12 @@ IoStore::Engine.routes.draw do
 
 
   namespace :admin do
-    resources :products
+
+    resources :products do
+      collection do
+        get 'remove_selected'
+      end
+    end
 
   end
 
