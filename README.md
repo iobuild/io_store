@@ -62,7 +62,7 @@ Add this line to your `application.js` file to load required JavaScript files:
 Add this line to your `application.css` to apply required styling:
 
 ```css
-*= require 'io_store/main'
+*= require 'io_store/store'
 ```
 
 
