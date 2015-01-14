@@ -1,0 +1,27 @@
+
+
+    
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+
+        <%= render '/io_store/admin/categories/menu' %>
+
+
+          <%= simple_form_for @category, :url => "/store/admin/categories" do |f| %>
+            
+          <p>
+              <label>Name</label>
+            </p>
+            <p><%= f.text_field :name, :label => false, :class => 'form-control', :required => true %></p>
+
+
+            <p><%= f.input :parent_id, :as => :hidden, :input_html => { :value => params['parent_id'] }  %></p>
+            <p><%= f.submit :submit %></p>
+          <% end %>
+
+
+
+    </div>
+  </div>
+</div>

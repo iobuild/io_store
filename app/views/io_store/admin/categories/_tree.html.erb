@@ -1,0 +1,14 @@
+<ul class="admin-sub-category">
+  <li>
+    <span class="name"><%= node.name %></span>
+    <span class="op"><%= link_to "add", "/store/admin/categories/new?parent_id=#{node.id}" %></span>
+    <span class="op"><%= link_to "edit", "/store/admin/categories/#{node.id}/edit" %></span>
+    <span class="op"><%= link_to "delete", "/store/admin/categories/#{node.id}", :method => :delete, :data => {:confirm => "deleted?"} %>
+    </span>
+
+    <% node.children.each do |child| %>
+      <%#= render :partial => "tree", :locals => {:node => child } %>
+      <%= render 'io_store/admin/categories/tree', :node => child %>
+    <% end %>
+  </li>
+</ul>

@@ -1,0 +1,57 @@
+<style type="text/css">
+  /*.admin-categories-panel ul { background: #f4f4f4; }
+  .admin-categories-panel ul ul { background: #f4f4f4 }*/
+
+  .admin-categories-panel ul li { background: #f4f4f4; margin: 10px;}
+  /*.admin-categories-panel ul ul li { background: #f4f4f4; }*/
+
+  .admin-sub-category li{
+    margin: 10px;
+    padding: 5px;
+    float: left;
+  }
+
+
+  .admin-sub-category {
+    margin: 20px;
+  }
+
+  .admin-sub-category .name {
+    width: 300px;
+    float: left;
+  }
+
+  .admin-sub-category .op {
+    width: 50px;
+    float: left;
+  }
+
+
+
+</style>
+
+
+    
+<div class="container-fluid">
+  <div class="row">
+  
+
+            <%= render 'io_store/admin/categories/menu' %>
+
+
+
+            <div class="admin-categories-panel">
+              
+                <% @categories.each do |node| %>
+                  <%= render 'io_store/admin/categories/tree', :node => node %>
+                <% end %>
+              
+            </div>
+
+
+    
+
+  </div>
+</div>
+
+

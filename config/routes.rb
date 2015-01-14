@@ -48,6 +48,9 @@ IoStore::Engine.routes.draw do
       end
     end
 
+
+    resources :categories
+
   end
 
 

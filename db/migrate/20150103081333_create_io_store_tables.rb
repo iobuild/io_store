@@ -1,6 +1,13 @@
 class CreateIoStoreTables < ActiveRecord::Migration
   def change
 
+    create_table :io_store_categories do |t|
+      t.string :name
+      t.integer :parent_id, :null => true, :index => true
+      t.integer :lft, :null => false, :index => true
+      t.integer :rgt, :null => false, :index => true
+    end
+
 
     create_table :io_store_products do |t|
       t.string   :title

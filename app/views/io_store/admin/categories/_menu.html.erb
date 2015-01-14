@@ -1,0 +1,13 @@
+  <%= render '/io_store/admin/menu' %>  
+
+
+
+
+<ul class="nav nav-tabs" style="margin-bottom:20px" role="tablist">
+    <li <% if current_page?(:action => 'index') %> class="active" <% end %>>
+      <%= link_to "Category List", "/store/admin/categories", :method => :get %>
+    </li>
+    <li<% if current_page?(:action => 'new') %> class="active" <% end %>>
+      <%= link_to "new category", '/store/admin/categories/new', :method => :get %>
+    </li>
+</ul>
