@@ -20,6 +20,7 @@ end
 
 require 'alipay'
 require 'paperclip'
+require 'paranoia'
 require 'decorators'
 require 'jquery-turbolinks'
 require 'bootstrap-sass'

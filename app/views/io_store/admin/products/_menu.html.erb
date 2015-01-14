@@ -5,4 +5,9 @@
     <li<% if current_page?(:action => 'new') %> class="active" <% end %>>
       <%= link_to "New Product", "/store/admin/products/new", :method => :get %>
     </li>
+
+    <li<% if current_page?(:action => 'trash') %> class="active" <% end %>>
+      <%= link_to "Trash Product", "/store/admin/products/trash", :method => :get %>
+    </li>
+
   </ul>

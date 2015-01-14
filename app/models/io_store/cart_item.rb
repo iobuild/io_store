@@ -6,6 +6,7 @@ module IoStore
 
 
     def amount
+      return 0 if self.sellable.nil?
       self.quantity * self.sellable.price
     end
 

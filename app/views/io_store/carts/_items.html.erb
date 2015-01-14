@@ -1,14 +1,25 @@
-    <% cart.cart_items.each do |item| %>
+    <% 
+      cart.cart_items.each do |item| 
+        product = item.sellable
+        if product.nil?
+          product = IoStore::Product.with_deleted.find(item.sellable_id)
+        end
+
+        next if product.nil?
+    %>
       <div class="col-md-6 cart-item-<%= item.id %>">
         <input type="checkbox" name="items[]" class="selected" value="<%= item.id %>" />
-        <%= item.sellable.title %>
+        <%= product.title %>
         <table class="table cart-list">
           <tr>
             <td width='30%'>
-              <img src="/<%= item.sellable.title %>.jpg"  width="100px" height="100px" />
+              <%= image_tag product.pic.url(:small) %>
             </td>
             <td width='70%'>
-              <p>单价: <%= item.sellable.price %> </p>
+              <% if product.deleted? %>
+              <p>该商品已经下架</p>
+              <% else %>
+              <p>单价: <%= product.price %> </p>
               <p>
               数量: 
               <span class='quantity'>
@@ -25,6 +36,7 @@
                 删除
               </a>
               </p>
+              <% end %>
             </td>
           </tr>
         </table>

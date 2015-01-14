@@ -17,6 +17,10 @@ module IoStore
         @products = IoStore::Product.order('id desc').page params[:page]
       end
 
+      def trash
+        @products = IoStore::Product.only_deleted.order('id desc').page params[:page]
+      end
+
       def new
         @product = IoStore::Product.new
       end
@@ -34,7 +38,7 @@ module IoStore
       end
 
 
-      def remove_selected
+      def move_to_trash
         items = params[:items]
 
         return render :nothing => true if items.nil?
@@ -42,17 +46,37 @@ module IoStore
 
         items.each do |id|
           product = IoStore::Product.find(id)
-          product.destroy
+          product.delete
         end
 
         redirect_to "/store/admin/products"
       end
 
 
-      def destroy
-        @product.destroy
+      def clear_selected_trash
+        items = params[:items]
 
-        redirect_to "/store/admin/products"
+        return render :nothing => true if items.nil?
+        return render :nothing => true if items.length == 0
+
+        items.each do |id|
+          product = IoStore::Product.with_deleted.find(id)
+          product.really_destroy!
+        end
+
+        redirect_to "/store/admin/products/trash"
+      end
+
+
+      def restore_selected_trash
+        items = params[:items]
+
+        return render :nothing => true if items.nil?
+        return render :nothing => true if items.length == 0
+
+        Product.restore(items)
+
+        redirect_to "/store/admin/products/trash"
       end
 
 

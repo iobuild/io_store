@@ -41,7 +41,10 @@ IoStore::Engine.routes.draw do
 
     resources :products do
       collection do
-        get 'remove_selected'
+        get 'move_to_trash'
+        get 'clear_selected_trash'
+        get 'restore_selected_trash'
+        get 'trash'
       end
     end
 

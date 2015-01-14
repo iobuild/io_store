@@ -7,9 +7,12 @@ class CreateIoStoreTables < ActiveRecord::Migration
       t.text   :desc
       t.attachment :pic
       t.decimal  :price, :null => false, :default => 0
+      t.datetime  :deleted_at
       
       t.timestamps
     end
+    add_index :io_store_products, :deleted_at
+
 
 
     create_table :io_store_addresses do |t|

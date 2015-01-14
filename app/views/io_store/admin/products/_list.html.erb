@@ -1,0 +1,29 @@
+<%= paginate products %>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Title</th>
+        <th>Price</th>
+        <th></th>
+        <th></th>
+      </th>
+    </thead>
+    <tbody>
+      <% products.each do |product| %>
+          <tr>
+            <td><input type="checkbox" name="items[]" class="selected" value="<%= product.id %>" /></td>
+            <td><%= image_tag product.pic.url(:thumb) %></td>
+            <td valign="top">
+              <a href="/articles/<%= product.id %>" target="_blank"><%= product.title %></a>
+            </td>
+            <td><%= product.price %></td>
+            <td class="table-normal"><%= link_to "edit", "/store/admin/products/#{product.id}/edit" %></td>
+          </tr>
+      <% end %>
+
+    </tbody>
+  </table>
