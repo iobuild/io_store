@@ -5,7 +5,7 @@ module IoStore
       before_filter :pre_load
 
       def pre_load
-        @product = IoStore::Product.find(params[:id]) if params[:id]
+        @product = IoStore::Product.with_deleted.find(params[:id]) if params[:id]
       end
 
 
@@ -34,6 +34,7 @@ module IoStore
       def update
         @product.update_attributes(product_params)
 
+        return redirect_to "/store/admin/products/trash" if @product.deleted?
         redirect_to "/store/admin/products"
       end
 
