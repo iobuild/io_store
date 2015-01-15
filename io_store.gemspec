@@ -39,6 +39,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'paperclip', '~> 4.2'
   s.add_dependency 'paranoia', '~> 2.0'
   s.add_dependency 'awesome_nested_set'
+  s.add_dependency 'bootstrap-select-rails'
+
 
   s.add_dependency 'jquery-turbolinks'
   s.add_dependency 'bootstrap-sass', '~> 3.3.1'

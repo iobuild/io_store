@@ -6,11 +6,13 @@ module IoStore
 
       def pre_load
         @product = IoStore::Product.with_deleted.find(params[:id]) if params[:id]
+
+        @categories = IoStore::Category.roots
       end
 
 
       def product_params
-        params.require(:product).permit(:title, :desc, :price, :pic)
+        params.require(:product).permit(:category_id, :title, :desc, :price, :pic)
       end
 
       def index
@@ -21,9 +23,10 @@ module IoStore
         @products = IoStore::Product.only_deleted.order('id desc').page params[:page]
       end
 
-      def new
+      def new        
         @product = IoStore::Product.new
       end
+
 
       def create
         @product = IoStore::Product.create( product_params )

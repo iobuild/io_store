@@ -91,6 +91,8 @@ module IoStore
       def create_assets
         create_file Rails.root + "vendor/assets/stylesheets/io_store.css.scss" do
           %Q{
+@import 'bootstrap-select';
+@import 'io_store/store';
 
           }
         end
@@ -102,6 +104,11 @@ module IoStore
 //= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
+
+//= require bootstrap-select
+//= require bootstrap/alert
+//= require bootstrap/dropdown
+
 //= require io_store/cart
 //= require io_store/address
 //= require io_store/store

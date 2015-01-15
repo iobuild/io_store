@@ -1,0 +1,9 @@
+<ul class="dropdown-menu" role="menu">
+  <li><a href="/ask/topics?cid=<%= node.id %>"><%= node.name %></a>
+
+    <% node.children.each do |child| %>
+    <%= render 'io_store/admin/products/category_tree', :node => child %>
+    <% end %>
+  </li>
+</ul>
+

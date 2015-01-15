@@ -1,7 +1,9 @@
 <ul class="admin-sub-category">
   <li>
     <span class="name"><%= node.name %></span>
+    <% if node.parent.nil? %>
     <span class="op"><%= link_to "add", "/store/admin/categories/new?parent_id=#{node.id}" %></span>
+    <% end %>
     <span class="op"><%= link_to "edit", "/store/admin/categories/#{node.id}/edit" %></span>
     <span class="op"><%= link_to "delete", "/store/admin/categories/#{node.id}", :method => :delete, :data => {:confirm => "deleted?"} %>
     </span>

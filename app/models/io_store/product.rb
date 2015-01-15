@@ -15,15 +15,11 @@ module IoStore
       :content_type => { :content_type => /\Aimage\/.*\Z/ },
       :size => { :in => 0..2000.kilobytes }
 
+
+    belongs_to :category, :class_name => "::IoStore::Category", :foreign_key => 'category_id'
+
     validates :title, :presence => true
     validates_uniqueness_of :title
-
-
-    before_destroy :remove_cart_item
-
-    def remote_cart_tem
-      Cart.item_for(self).destroy
-    end
 
 
   end

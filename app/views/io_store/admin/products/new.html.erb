@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-7">
 
 
       <%= render '/io_store/admin/products/menu' %>
@@ -9,6 +9,28 @@
       <%= simple_form_for(@product, :url => "/store/admin/products", html: { class: 'form-vertical', :multipart => true }) do |f| %>
 
         <%= f.error_notification %>
+
+        <div class="form-group"> 
+
+          <select name="product[category_id]" class="selectpicker show-tick" data-live-search=”true”>
+            <% @categories.each do |c| %>
+
+              <% if c.children.length > 0 %>
+              <optgroup label="<%= c.name %>">
+                <% c.children.each do |child| %>
+                <option value="<%= child.id %>"><%= child.name %></option>
+                <% end %>
+              </optgroup>
+              
+              <% else %>
+              <option value="<%= c.id %>"><%= c.name %></option>
+              <% end %>
+              
+            <% end %>
+          </select> 
+
+
+        </div>
 
 
         <div class="form-group">       
@@ -22,7 +44,7 @@
 
 
         <div class="form-group">       
-            <%= f.input :desc, as: :text, :label => false, :required => true, :placeholder => '请填写商品描述', input_html: {:class => 'form-control'} %>
+            <%= f.input :desc, as: :text, :label => false, :required => true, :placeholder => '请填写商品描述', input_html: {:class => 'form-control', :rows => 12} %>
         </div>
 
 

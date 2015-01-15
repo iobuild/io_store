@@ -10,6 +10,7 @@ class CreateIoStoreTables < ActiveRecord::Migration
 
 
     create_table :io_store_products do |t|
+      t.integer :category_id
       t.string   :title
       t.text   :desc
       t.attachment :pic
