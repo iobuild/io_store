@@ -12,7 +12,7 @@
 
         <div class="form-group"> 
 
-          <select name="product[category_id]" class="selectpicker show-tick" data-live-search=”true”>
+          <select name="product[category_id]" id="product_category_id" class="selectpicker show-tick" data-live-search=”true”>
             <% @categories.each do |c| %>
 
               <% if c.children.length > 0 %>
@@ -28,6 +28,13 @@
               
             <% end %>
           </select> 
+
+          <script type="text/javascript">
+            $(document).on('ready', function(){
+              $('#product_category_id').val('<%= @product.category_id %>');
+              $('.selectpicker').selectpicker('refresh');
+            });
+          </script>
 
 
         </div>

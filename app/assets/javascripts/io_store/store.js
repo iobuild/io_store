@@ -1,3 +1,5 @@
+
+
   $(document).on('click', '.products .move-to-trash', function(){
     
     var items = []

@@ -26,6 +26,7 @@ require 'jquery-turbolinks'
 require 'bootstrap-sass'
 require 'simple_form'
 require 'font-awesome-sass'
+require 'rails-bootstrap-select'
 
 
 # We need one of the two pagination engines loaded by this point.
